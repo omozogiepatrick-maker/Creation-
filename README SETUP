@@ -1,0 +1,80 @@
+# Provaxis — Setup Guide
+
+Everything code-related is already built. Three things need to happen in the
+Cloudflare dashboard, because they involve creating cloud resources and secret
+keys that should never live inside the website's files.
+
+---
+
+## 1. Deploy the site to Cloudflare Pages
+
+1. Go to **pages.cloudflare.com** and sign up (free, no card required).
+2. Click **Create a project → Upload assets**.
+3. Drag in the **entire folder** — all the `.html` files, the `assets` folder,
+   `manifest.json`, `sw.js`, the `functions` folder, and `schema.sql` — all together,
+   preserving the folder structure.
+4. Cloudflare gives you a `*.pages.dev` URL. That's your live site.
+
+---
+
+## 2. Connect the database (so the contact form actually saves messages)
+
+Right now, if you submit the contact form before this step, it will show
+**"Could not send — try again"** — that's intentional. It's telling you the
+truth instead of pretending the message went somewhere it didn't.
+
+1. In the Cloudflare dashboard, go to **Storage & Databases → D1**.
+2. Click **Create database**, name it something like `provaxis-db`.
+3. Open the new database → **Console** tab.
+4. Open `schema.sql` (included in this project) and paste its contents into
+   the console, then run it. This creates the `submissions` table.
+5. Go back to your Pages project → **Settings → Functions → D1 database bindings**.
+6. Click **Add binding**:
+   - Variable name: `DB` (must be exactly this — the code looks for `env.DB`)
+   - D1 database: select `provaxis-db`
+7. Redeploy the site (Pages → Deployments → retry latest, or re-upload).
+
+After this, every contact form submission is saved in that database. You can
+view them anytime in the D1 console with:
+```sql
+SELECT * FROM submissions ORDER BY created_at DESC;
+```
+
+---
+
+## 3. Add an AI feature later (when you're ready)
+
+The code in `functions/api/ai-assistant.js` is a ready-made example — it is
+**not connected to any button on the site yet**. When you want to add an AI
+feature (a chat assistant, an audit summarizer, anything):
+
+1. Get an API key from whichever AI provider you want to use.
+2. In Cloudflare Pages → **Settings → Environment variables**, add a new
+   **secret** (not a plain variable):
+   - Name: `ANTHROPIC_API_KEY` (or whatever the function expects)
+   - Value: your actual key
+3. Redeploy.
+4. Build the frontend piece (a chat box, a button, etc.) that calls
+   `POST /api/ai-assistant` with `{ "message": "..." }` — I can build that
+   part whenever you're ready.
+
+**Never** paste an API key directly into any `.html` or `.js` file in this
+project. Anything in those files is visible to anyone who views the page
+source — the whole point of the environment variable step is that the key
+only ever lives on Cloudflare's servers, not in the browser.
+
+---
+
+## Quick reference
+
+| What | Where |
+|---|---|
+| Pages themselves | the `.html` files at the root |
+| Shared styles/scripts/logo | `assets/` |
+| App icons (for "Install app") | `assets/icons/` |
+| Installability config | `manifest.json` |
+| Offline/install support | `sw.js` |
+| Backend contact form handler | `functions/api/contact.js` |
+| Backend AI stub (unused for now) | `functions/api/ai-assistant.js` |
+| Database table definition | `schema.sql` |
+                   
