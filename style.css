@@ -165,6 +165,53 @@ nav.wrap{ display:flex; align-items:center; justify-content:space-between; heigh
 .cta-row.left{ justify-content:flex-start; }
 
 .hero-visual{ position:relative; z-index:1; max-width:920px; margin:60px auto 0; padding:20px; }
+
+/* CSS-only 3D layered stack — no external library, nothing that can fail to load */
+.stack-3d{
+  perspective: 1000px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+.stack-3d-inner{
+  position: relative;
+  width: 180px;
+  height: 120px;
+  transform-style: preserve-3d;
+  animation: rotate3d 14s linear infinite;
+}
+@media (prefers-reduced-motion: reduce){
+  .stack-3d-inner{ animation: none; transform: rotateX(-18deg) rotateY(28deg); }
+}
+.stack-layer{
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  border: 1px solid var(--glass-border);
+  background: linear-gradient(135deg, rgba(76,124,255,0.16), rgba(139,92,246,0.16));
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.stack-layer:nth-child(1){ transform: translateZ(60px); }
+.stack-layer:nth-child(2){ transform: translateZ(20px) scale(0.94); opacity:.85; }
+.stack-layer:nth-child(3){ transform: translateZ(-20px) scale(0.88); opacity:.65; }
+.stack-layer:nth-child(4){ transform: translateZ(-60px) scale(0.82); opacity:.45; }
+.stack-layer:nth-child(5){ transform: translateZ(-100px) scale(0.76); opacity:.28; }
+@keyframes rotate3d{
+  from{ transform: rotateX(-18deg) rotateY(0deg); }
+  to{ transform: rotateX(-18deg) rotateY(360deg); }
+}
+
 .flow-row{ display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; }
 .flow-chip{
   font-family:var(--mono); font-size:12px; padding:10px 16px; border-radius:8px;
@@ -247,6 +294,14 @@ nav.wrap{ display:flex; align-items:center; justify-content:space-between; heigh
   transition:border-color .2s, color .2s;
 }
 .industry-chip:hover{ border-color:var(--blue); color:var(--text); }
+
+.file-id{ font-family:var(--mono); font-size:12px; color:var(--text-dim); letter-spacing:.04em; }
+.file-tags{ display:flex; gap:8px; flex-wrap:wrap; }
+.chip{
+  font-family:var(--mono); font-size:11px; letter-spacing:.03em;
+  border:1px solid var(--bg-3); color:var(--text-dim);
+  padding:4px 10px; border-radius:4px;
+}
 
 /* ---------- MISSION / VISION / PHILOSOPHY ---------- */
 .pillars{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
