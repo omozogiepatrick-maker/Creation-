@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://provaxisco.vercel.app/index.html</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://provaxisco.vercel.app/bottleneck-audit.html</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://provaxisco.vercel.app/solutions.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://provaxisco.vercel.app/case-studies.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://provaxisco.vercel.app/innovation-lab.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://provaxisco.vercel.app/company.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://provaxisco.vercel.app/referral.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://provaxisco.vercel.app/contact.html</loc>
+    <priority>0.7</priority>
+  </url>
+</urlset>
