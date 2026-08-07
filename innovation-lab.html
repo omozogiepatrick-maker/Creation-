@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Studies | Provaxis</title>
+<meta name="description" content="How Provaxis diagnosed real operational bottlenecks and built the technology to remove them — the challenge, the bottleneck, the solution, and the outcome.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#08090E">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Provaxis">
+<style>
+  .case-full{ padding:36px 0; border-bottom:1px solid var(--bg-3); }
+  .case-full:last-child{ border-bottom:none; }
+  .case-full .file-id{ margin-bottom:10px; }
+  .case-full h2{ font-size:26px; margin-bottom:20px; }
+  .case-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-bottom:20px; }
+  @media (max-width:760px){ .case-grid{ grid-template-columns:1fr; } }
+  .case-block{ padding:20px 22px; }
+  .case-block .fit-label{ margin-bottom:8px; }
+  .case-block p{ font-size:14px; color:var(--text-dim); }
+  .case-outcome{ padding:20px 22px; border-color:var(--purple); margin-bottom:14px; }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="index.html" class="mark"><img src="logo.png" alt="Provaxis logo" class="mark-icon"> <span class="mark-text">PROVAXIS</span></a>
+    <div class="navlinks" id="navlinks">
+      <a href="index.html">Home</a>
+      <a href="bottleneck-audit.html">Bottleneck Audit</a>
+      <a href="solutions.html">Solutions</a>
+      <a href="case-studies.html" class="active">Case Studies</a>
+      <a href="innovation-lab.html">Innovation Lab</a>
+      <a href="company.html">Company</a>
+      <a href="referral.html">Referral</a>
+      <a href="contact.html" class="mobile-only-link">Book Audit</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark or light theme">◐</button>
+      <a href="contact.html" class="nav-cta">Book a Business Bottleneck Audit</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navlinks">☰</button>
+    </div>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="wrap hero-inner">
+    <div class="eyebrow center">Case Studies</div>
+    <h1>The bottleneck. <span class="grad-text">The solution. The outcome.</span></h1>
+    <p class="lede">Every project starts with a real operational problem — not a request for "a website." Here's how three of them played out.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+
+    <div class="case-full reveal">
+      <div class="file-id">CASE 01 · SAAS</div>
+      <h2>SaaS platform redesign</h2>
+      <div class="case-grid">
+        <div class="case-block glass">
+          <span class="fit-label">The Challenge</span>
+          <p>An early-stage SaaS company's dashboard had grown feature by feature for two years with no redesign. New users churned during onboarding, and the team couldn't say why.</p>
+        </div>
+        <div class="case-block glass">
+          <span class="fit-label">The Bottleneck Discovered</span>
+          <p>Onboarding required 14 manual steps before a user saw any value. Most drop-off happened before step 5 — a UX problem, not a product problem.</p>
+        </div>
+        <div class="case-block glass">
+          <span class="fit-label">The Solution</span>
+          <p>A rebuilt dashboard with a guided, self-serve setup flow that got users to their first result in under 3 steps.</p>
+        </div>
+        <div class="case-block glass">
+          <span class="fit-label">Technology Used</span>
+          <p>Modern frontend framework, redesigned information architecture, self-serve onboarding logic.</p>
+        </div>
+      </div>
+      <div class="case-outcome glass">
+        <span class="fit-label" style="color:var(--purple);">The Outcome</span>
+        <p style="color:var(--text); font-size:14.5px;">Page load times dropped significantly and onboarding became fully self-serve for the first time — no support ticket required to get started.</p>
+      </div>
+      <p style="font-size:13.5px; color:var(--text-dim);"><strong style="color:var(--text);">Lesson learned:</strong> the real bottleneck was rarely the feature set — it was the number of decisions a new user had to make before feeling any progress.</p>
+      <div class="file-tags" style="margin-top:16px;"><span class="chip">SaaS</span><span class="chip">UI/UX</span><span class="chip">Onboarding</span></div>
+    </div>
+
+    <div class="case-full reveal">
+      <div class="file-id">CASE 02 · E-COMMERCE</div>
+      <h2>E-commerce launch for a retail brand</h2>
+      <div class="case-grid">
+        <div class="case-block glass">
+          <span class="fit-label">The Challenge</span>
+          <p>A retail brand sold exclusively through in-person and social media DMs — orders, payments, and inventory were tracked manually across three different tools.</p>
+        </div>
+        <div class="case-block glass">
+          <span class="fit-label">The Bottleneck Discovered</span>
+          <p>Every sale required manual reconciliation between what was sold, what was in stock, and what had actually been paid for — hours of admin work weekly, and regular stock errors.</p>
+        </div>
+        <div class="case-block glass">
+          <span class="fit-label">The Solution</span>
+          <p>A full storefront with a connected product catalog, checkout, and payments — inventory updates automatically with every order.</p>
+        </div>
+        <div class="case-block glass">
+          <span class="fit-label">Technology Used</span>
+          <p>E-commerce storefront, integrated payments, real-time inventory sync.</p>
+        </div>
+      </div>
+      <div class="case-outcome glass">
+        <span class="fit-label" style="color:var(--purple);">The Outcome</span>
+        <p style="color:var(--text); font-size:14.5px;">Launch-ready in weeks, with manual reconciliation work eliminated entirely — the owner got hours of their week back.</p>
+      </div>
+      <p style="font-size:13.5px; color:var(--text-dim);"><strong style="color:var(--text);">Lesson learned:</strong> the business didn't need "a website" — it needed one system instead of three disconnected ones.</p>
+      <div class="file-tags" style="margin-top:16px;"><span class="chip">E-commerce</span><span class="chip">Responsive</span><span class="chip">Payments</span></div>
+    </div>
+
+    <div class="case-full reveal">
+      <div class="file-id">CASE 03 · STARTUP</div>
+      <h2>Startup landing page &amp; MVP site</h2>
+      <div class="case-grid">
+        <div class="case-block glass">
+          <span class="fit-label">The Challenge</span>
+          <p>A pre-launch startup needed to validate demand and start collecting early users before the product itself was fully built.</p>
+        </div>
+        <div class="case-block glass">
+          <span class="fit-label">The Bottleneck Discovered</span>
+          <p>Without a credible landing page, cold outreach and early conversations weren't converting — people needed something to look at before they'd commit.</p>
+        </div>
+        <div class="case-block glass">
+          <span class="fit-label">The Solution</span>
+          <p>A conversion-focused landing page paired with a lightweight functional MVP for the first cohort of early users.</p>
+        </div>
+        <div class="case-block glass">
+          <span class="fit-label">Technology Used</span>
+          <p>Landing page, lightweight web app, early-access signup flow.</p>
+        </div>
+      </div>
+      <div class="case-outcome glass">
+        <span class="fit-label" style="color:var(--purple);">The Outcome</span>
+        <p style="color:var(--text); font-size:14.5px;">The founder had something credible to send in outreach within days, not months — and started collecting real user feedback immediately.</p>
+      </div>
+      <p style="font-size:13.5px; color:var(--text-dim);"><strong style="color:var(--text);">Lesson learned:</strong> early-stage credibility often matters more than early-stage feature completeness.</p>
+      <div class="file-tags" style="margin-top:16px;"><span class="chip">Startup</span><span class="chip">Landing Page</span><span class="chip">MVP</span></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap cta-banner reveal">
+    <h2>Have a bottleneck like one of these?</h2>
+    <div class="cta-row">
+      <a href="contact.html" class="btn btn-primary">Book a Business Bottleneck Audit</a>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <div>© 2026 Provaxis. Discover the bottleneck. Build the solution.</div>
+  <div>
+    <a href="https://www.linkedin.com/in/provaxis-helping-businesses-27808640b" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://x.com/provaxis00pm" target="_blank" rel="noopener">X</a>
+    <a href="mailto:omozogiepatrick@gmail.com">Email</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
