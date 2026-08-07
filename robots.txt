@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://provaxisco.vercel.app/sitemap.xml
