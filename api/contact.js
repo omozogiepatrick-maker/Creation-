@@ -35,6 +35,31 @@ module.exports = async function handler(req, res) {
       INSERT INTO submissions (name, email, project_type, message, source)
       VALUES (${cleanName}, ${cleanEmail}, ${cleanType}, ${cleanMessage}, ${cleanSource})
     `;
+
+    // Send an email notification (best-effort — if this fails, the submission is still
+    // safely saved in the database above, so we don't fail the whole request over it).
+    const resendKey = process.env.RESEND_API_KEY;
+    if (resendKey) {
+      try {
+        await fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${resendKey}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            from: 'Provaxis Website <onboarding@resend.dev>',
+            to: ['omozogiepatrick@gmail.com'],
+            reply_to: cleanEmail,
+            subject: `New enquiry: ${cleanType || 'General'} — ${cleanName}`,
+            text: `Name: ${cleanName}\nEmail: ${cleanEmail}\nType: ${cleanType}\nSource: ${cleanSource}\n\nMessage:\n${cleanMessage}`
+          })
+        });
+      } catch (emailErr) {
+        console.error('Email notification failed (submission still saved):', emailErr.message);
+      }
+    }
+
     res.status(200).json({ ok: true });
   } catch (err) {
     res.status(500).json({ ok: false, error: 'Could not save submission. ' + err.message });
