@@ -1,5 +1,26 @@
 // ============ PROVAXIS — shared site behavior ============
 
+// Splash screen (only runs on pages that actually have a #splash element)
+const splash = document.getElementById('splash');
+if (splash) {
+  const splashStart = Date.now();
+  const MIN_VISIBLE_MS = 900; // so it doesn't just flash for a frame on fast/cached loads
+
+  function hideSplash() {
+    if (splash.classList.contains('hide')) return; // already hidden, don't double-run
+    const elapsed = Date.now() - splashStart;
+    const wait = Math.max(0, MIN_VISIBLE_MS - elapsed);
+    setTimeout(() => {
+      splash.classList.add('hide');
+      setTimeout(() => splash.remove(), 600); // clean up after the fade finishes
+    }, wait);
+  }
+
+  window.addEventListener('load', hideSplash);
+  // Hard fallback: if 'load' never fires for some reason, never leave visitors stuck
+  setTimeout(hideSplash, 3000);
+}
+
 // Theme toggle (in-memory only — resets on page load, no persistent storage used)
 const themeToggle = document.getElementById('themeToggle');
 const root = document.documentElement;
@@ -99,4 +120,5 @@ if ('serviceWorker' in navigator) {
       console.warn('Service worker registration failed:', err);
     });
   });
-}
+  }
+      
