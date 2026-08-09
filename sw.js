@@ -12,6 +12,7 @@ const CORE_ASSETS = [
   '/style.css',
   '/script.js',
   '/logo.png',
+  '/logo-full.jpg',
   '/icon-192.png',
   '/icon-512.png',
   '/manifest.json'
