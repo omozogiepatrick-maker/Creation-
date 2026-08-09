@@ -49,6 +49,29 @@ body{
   overflow-x:hidden;
   transition:background .3s ease, color .3s ease;
 }
+
+/* ---------- SPLASH SCREEN (entry page only) ---------- */
+.splash-screen{
+  position:fixed; inset:0; z-index:9999;
+  background:#08090E;
+  display:flex; align-items:center; justify-content:center;
+  transition:opacity .5s ease;
+}
+.splash-screen img{
+  width:min(80vw, 420px);
+  animation:splash-in .7s ease;
+}
+.splash-screen.hide{
+  opacity:0;
+  pointer-events:none;
+}
+@keyframes splash-in{
+  from{ opacity:0; transform:scale(0.96); }
+  to{ opacity:1; transform:scale(1); }
+}
+@media (prefers-reduced-motion: reduce){
+  .splash-screen img{ animation:none; }
+}
 a{color:inherit;}
 img{max-width:100%; display:block;}
 .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
@@ -396,11 +419,4 @@ footer a{ color:var(--text-dim); text-decoration:none; margin-left:18px; }
 .social-links a{
   font-family:var(--mono); font-size:12.5px; color:var(--blue-2);
   text-decoration:none; border:1px solid var(--bg-3); padding:8px 14px; border-radius:6px;
-  transition:border-color .2s, color .2s;
-}
-.social-links a:hover{ border-color:var(--blue-2); }
-footer a:hover{ color:var(--blue-2); }
-
-.reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
-.reveal.visible{ opacity:1; transform:translateY(0); }
-@media (prefers-reduced-motion: reduce){ .reveal, .stage{ transition:none; opacity:1; transform:none; } }
+  tr
